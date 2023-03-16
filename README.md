@@ -1,2 +1,2 @@
 # ComfortVim
-easy and powerful configuration for vim
+simple and powerful settings for vim
