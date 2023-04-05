@@ -2,26 +2,37 @@
 "== Enhance Editor ==
 "====================
 
-colorscheme industry
+set nocompatible
+colorscheme gruvbox
+
+set bg=dark
 
 syntax on
+filetype indent on
+set shortmess+=c
+set noshowmode
+set nobackup
+set noswapfile
 set updatetime=300
 set number
 set hidden
 set mouse=a
-set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+set tabstop=2
+set smarttab
 set noexpandtab
 set ignorecase
 set smartcase
 set jumpoptions=stack
 set scrolloff=4
 set autoindent
-set cindent
+set smartindent
+set relativenumber
 let mapleader=' '
 
 inoremap jj <Esc>
+nnoremap <c-k> <c-v>
 "======== windows ========
 nnoremap <leader>w :w<cr>
 nnoremap <leader>gh <c-w>h
@@ -61,9 +72,19 @@ nnoremap   <silent>   <Leader>tt   :FloatermToggle<CR>
 tnoremap   <silent>   <Leader>tt   <C-\><C-n>:FloatermToggle<CR>
 nnoremap   <silent>   <Leader>tk   :FloatermKill<CR>
 tnoremap   <silent>   <Leader>tk   <C-\><C-n>:FloatermKill<CR>
-
+"======= airline =======
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = '|'
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#buffer_nr_show = 1        "显示buffer编号
+let g:airline#extensions#tabline#buffer_nr_format = '%s:'
+let g:airline#extensions#battery#enabled = 1
+let g:airline_left_sep = '|'
+let g:airline_left_alt_sep = '|'
 "======= Tagbar ========
 nnoremap <silent> <Leader>tb :TagbarToggle<CR>
+let g:tagbar_autofocus=1
 
 "====================
 "===   plugins   ====
@@ -106,6 +127,12 @@ Plug 'majutsushi/tagbar'
 
 " snippets
 Plug 'honza/vim-snippets'
+
+" gruvbox themes
+Plug 'morhetz/gruvbox'
+
+" debug in vim: ./install_gadgets.py --enable-c
+Plug 'puremourning/vimspector'
 
 call plug#end()
 
@@ -177,12 +204,14 @@ endfunction
 " highlight link CocHighlightText Visual
 " autocmd CursorHold * silent call CocActionAsync('highlight')   " TODO
 
-nmap <leader>rn <Plug>(coc-rename)
+nmap <F2> <Plug>(coc-rename)
 
 " format
-xmap <leader>f <Plug>(coc-format-selected)
 command! -nargs=0 Format :call CocAction('format')
 nmap <Leader>F :Format<cr>
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
 
 augroup mygroup
   autocmd!
@@ -244,3 +273,26 @@ hi default link LspCxxHlSymMacro cxxMacro
 hi default link LspCxxHlSymEnumMember cxxEnumMember
 hi default link LspCxxHlSymParameter cxxParameter
 hi default link LspCxxHlSymClass cxxTypeAlias
+
+"===== just keep quite =====
+set visualbell
+
+"======= vimspector ========
+nmap <Leader>5 <Plug>VimspectorContinue
+nmap <Leader>8 <Plug>VimspectorStepOver
+nmap <Leader>9 <Plug>VimspectorStepInto
+nmap <Leader>0 <Plug>VimspectorStepOut
+nmap <Leader>b <Plug>VimspectorToggleBreakpoint
+nmap <Leader>B <Plug>VimspectorToggleConditionalBreakpoint
+function! s:generate_vimspector_conf()
+  if empty(glob( '.vimspector.json' ))
+      execute "silent !cp ~/.config/nvim/vimspector_config/c.json ./.vimspector.json"
+  endif
+  e .vimspector.json
+endfunction
+
+command! -nargs=0 Gvimspector :call s:generate_vimspector_conf()
+
+nmap <Leader>i <Plug>VimspectorBalloonEval
+xmap <Leader>i <Plug>vimspectorBalloonEval
+
