@@ -324,13 +324,16 @@ nmap <c-p> :FZF<cr>
 "======= clang-format ======
 "===========================
 let g:clang_format#style_options = {
-			\ " BasedOnStyle" : "Mozilla",
+			\ " BasedOnStyle" : "Google",
 			\ "IndentWidth" : 4,
 			\ "AccessModifierOffset" : -4,
             \ "AllowShortIfStatementsOnASingleLine" : "true",
             \ "AlwaysBreakTemplateDeclarations" : "true",
 			\ "ContinuationIndentWidth": 4, 
 			\ "ObjCBlockIndentWidth": 4,
-			\ "TabWidth" : 4}  
+			\ "TabWidth" : 4, 
+			\ "MaxEmptyLinesToKeep" : 1,
+			\ "BreakBeforeBraces" : "Allman"}
+			
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
