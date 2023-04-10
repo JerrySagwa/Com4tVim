@@ -18,9 +18,9 @@ set updatetime=300
 set number
 set hidden
 set mouse=a
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 set smarttab
 set noexpandtab
 set ignorecase
@@ -68,7 +68,6 @@ let g:floaterm_height = 0.8
 let g:floaterm_title = 'floaterm: $1/$2'
 
 nnoremap   <silent>   <Leader>tw    :FloatermNew<CR>
-tnoremap   <silent>   <Leader>tw    <C-\><C-n>:FloatermNew<CR>
 nnoremap   <silent>   <Leader>tp    :FloatermPrev<CR>
 tnoremap   <silent>   <Leader>tp    <C-\><C-n>:FloatermPrev<CR>
 nnoremap   <silent>   <Leader>tn    :FloatermNext<CR>
@@ -145,6 +144,9 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 " terminal
 Plug 'voldikss/vim-floaterm'
 
+" comment
+Plug 'tpope/vim-commentary'
+
 set encoding=UTF-8
 
 " airline
@@ -166,6 +168,8 @@ Plug 'puremourning/vimspector'
 
 " fuzzy file finder
 Plug '~/.fzf'
+
+Plug 'rhysd/vim-clang-format'
 
 call plug#end()
 
@@ -231,17 +235,6 @@ endfunction
 " autocmd CursorHold * silent call CocActionAsync('highlight')   " TODO
 
 nmap <F2> <Plug>(coc-rename)
-
-" format
-command! -nargs=0 Format :call CocAction('format')
-nmap <Leader>F :Format<cr>
-
-
-augroup mygroup
-  autocmd!
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
 
 " diagnostic info
 nnoremap <silent><nowait> <LEADER>d :CocList diagnostics<CR>
@@ -326,3 +319,18 @@ xmap <Leader>i <Plug>vimspectorBalloonEval
 "=========== fzf ===========
 "===========================
 nmap <c-p> :FZF<cr> 
+
+"===========================
+"======= clang-format ======
+"===========================
+let g:clang_format#style_options = {
+			\ " BasedOnStyle" : "Mozilla",
+			\ "IndentWidth" : 4,
+			\ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+			\ "ContinuationIndentWidth": 4, 
+			\ "ObjCBlockIndentWidth": 4,
+			\ "TabWidth" : 4}  
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>

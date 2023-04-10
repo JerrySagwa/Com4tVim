@@ -39,5 +39,6 @@
 				"compilationDatabaseDirectory": "build/"
 			}
 		}
-	}
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }
