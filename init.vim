@@ -9,6 +9,7 @@ set bg=dark
 
 syntax on
 filetype indent on
+filetype plugin on
 set shortmess+=c
 set noshowmode
 set nobackup
@@ -30,7 +31,11 @@ set autoindent
 set smartindent
 set relativenumber
 let mapleader=' '
+"bg transparent 
+"hi Normal ctermfg=252 ctermbg=none
 
+"nohighlightsearch
+nnoremap <Leader>nh :noh<cr>
 inoremap jj <Esc>
 nnoremap <c-k> <c-v>
 "======== windows ========
@@ -73,15 +78,41 @@ tnoremap   <silent>   <Leader>tt   <C-\><C-n>:FloatermToggle<CR>
 nnoremap   <silent>   <Leader>tk   :FloatermKill<CR>
 tnoremap   <silent>   <Leader>tk   <C-\><C-n>:FloatermKill<CR>
 "======= airline =======
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = '|'
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#buffer_nr_show = 1        "显示buffer编号
 let g:airline#extensions#tabline#buffer_nr_format = '%s:'
-let g:airline#extensions#battery#enabled = 1
-let g:airline_left_sep = '|'
-let g:airline_left_alt_sep = '|'
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+" airline symbols                                                                                                                              
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+set t_Co=256
 "======= Tagbar ========
 nnoremap <silent> <Leader>tb :TagbarToggle<CR>
 let g:tagbar_autofocus=1
@@ -114,8 +145,7 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 " terminal
 Plug 'voldikss/vim-floaterm'
 
-" comment
-Plug 'scrooloose/nerdcommenter'
+set encoding=UTF-8
 
 " airline
 Plug 'vim-airline/vim-airline'
@@ -134,6 +164,9 @@ Plug 'morhetz/gruvbox'
 " debug in vim: ./install_gadgets.py --enable-c
 Plug 'puremourning/vimspector'
 
+" fuzzy file finder
+Plug '~/.fzf'
+
 call plug#end()
 
 "====================
@@ -143,13 +176,6 @@ call plug#end()
 " would refresh NERDTree manually.
 nnoremap <leader>p :NERDTreeToggle<cr>
 nnoremap <leader>v :NERDTreeFind<cr>
-
-"==== nerdcommenter ====
-let g:NERDSpaceDelimes=1
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
 
 
 "===========================
@@ -209,8 +235,6 @@ nmap <F2> <Plug>(coc-rename)
 " format
 command! -nargs=0 Format :call CocAction('format')
 nmap <Leader>F :Format<cr>
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 
 
 augroup mygroup
@@ -279,11 +303,13 @@ set visualbell
 
 "======= vimspector ========
 nmap <Leader>5 <Plug>VimspectorContinue
+nmap <Leader>7 <Plug>VimspectorRunToCursor
 nmap <Leader>8 <Plug>VimspectorStepOver
 nmap <Leader>9 <Plug>VimspectorStepInto
 nmap <Leader>0 <Plug>VimspectorStepOut
 nmap <Leader>b <Plug>VimspectorToggleBreakpoint
 nmap <Leader>B <Plug>VimspectorToggleConditionalBreakpoint
+nmap <Leader>r <Plug>VimspectorRestart
 function! s:generate_vimspector_conf()
   if empty(glob( '.vimspector.json' ))
       execute "silent !cp ~/.config/nvim/vimspector_config/c.json ./.vimspector.json"
@@ -296,3 +322,7 @@ command! -nargs=0 Gvimspector :call s:generate_vimspector_conf()
 nmap <Leader>i <Plug>VimspectorBalloonEval
 xmap <Leader>i <Plug>vimspectorBalloonEval
 
+"===========================
+"=========== fzf ===========
+"===========================
+nmap <c-p> :FZF<cr> 
