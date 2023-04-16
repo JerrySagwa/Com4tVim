@@ -82,6 +82,7 @@ let g:NERDTreeDirArrowCollapsible="~"
 
 " air-line
 let g:airline_powerline_fonts = 1
+let g:airline_theme="solarized"
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -169,7 +170,10 @@ Plug 'puremourning/vimspector'
 " fuzzy file finder
 Plug '~/.fzf'
 
+" download clang & clang-format
 Plug 'rhysd/vim-clang-format'
+
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -333,7 +337,7 @@ let g:clang_format#style_options = {
 			\ "ObjCBlockIndentWidth": 4,
 			\ "TabWidth" : 4, 
 			\ "MaxEmptyLinesToKeep" : 1,
-			\ "BreakBeforeBraces" : "Allman"}
+			\ "BreakBeforeBraces" : "Linux"}
 			
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
