@@ -1,3 +1,19 @@
+"================================
+"======== prerequisites =========
+"================================
+"====== nodejs npm yarn     =====
+"====== ctags               =====
+"====== gdb||CodeLLDB       =====
+"====== fzf                 =====
+"====== nerdfonts           =====
+"====== clang&clang-format  =====
+"================================
+"====== lsp file coc.setting ====
+"====== .vimspector.json    =====
+"================================
+
+
+
 "====================
 "== Enhance Editor ==
 "====================
@@ -91,7 +107,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1        "显示buffer编号
 let g:airline#extensions#tabline#buffer_nr_format = '%s:'
 " unicode symbols
-let g:airline_left_sep = '»'
+" let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '«'
 let g:airline_right_sep = '◀'
@@ -154,7 +170,7 @@ set encoding=UTF-8
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" catgs & tagbar
+" ctags & tagbar
 " https://docs.ctags.io/en/latest/autotools.html#gnu-linux-distributions
 Plug 'majutsushi/tagbar'
 
@@ -165,6 +181,7 @@ Plug 'honza/vim-snippets'
 Plug 'morhetz/gruvbox'
 
 " debug in vim: ./install_gadgets.py --enable-c
+" using vscode-cpptools or CodeLLDB
 Plug 'puremourning/vimspector'
 
 " fuzzy file finder
@@ -173,6 +190,7 @@ Plug '~/.fzf'
 " download clang & clang-format
 Plug 'rhysd/vim-clang-format'
 
+" down nerdfonts
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
