@@ -6,6 +6,7 @@
 "====== gdb||CodeLLDB       =====
 "====== fzf                 =====
 "====== nerdfonts           =====
+"====== powerline(airline)  =====
 "====== clang&clang-format  =====
 "================================
 "====== lsp file coc.setting ====
@@ -61,6 +62,10 @@ nnoremap <leader>gj <c-w>j
 nnoremap <leader>gk <c-w>k
 nnoremap <leader>gl <c-w>l
 nnoremap <leader>gg <c-w>w
+nnoremap <leader>g= <c-w>+
+nnoremap <leader>g- <c-w>-
+nnoremap <leader>g, <c-w><
+nnoremap <leader>g. <c-w>>
 nnoremap <leader>ss <c-w>s
 nnoremap <leader>sv <c-w>v
 
@@ -108,9 +113,9 @@ let g:airline#extensions#tabline#buffer_nr_show = 1        "显示buffer编号
 let g:airline#extensions#tabline#buffer_nr_format = '%s:'
 " unicode symbols
 " let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '«'
+" let g:airline_right_sep = '◀'
 let g:airline_symbols.linenr = '␊'
 let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.linenr = '¶'
@@ -118,7 +123,7 @@ let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
+" let g:airline_symbols.whitespace = 'Ξ'
 " airline symbols                                                                                                                              
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
