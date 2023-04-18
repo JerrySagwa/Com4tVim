@@ -49,7 +49,7 @@ set smartindent
 set relativenumber
 let mapleader=' '
 "bg transparent 
-"hi Normal ctermfg=252 ctermbg=none
+" hi Normal ctermfg=252 ctermbg=none
 
 "nohighlightsearch
 nnoremap <Leader>nh :noh<cr>
