@@ -21,7 +21,6 @@
 
 set nocompatible
 colorscheme gruvbox
-
 set bg=dark
 
 syntax on
@@ -48,7 +47,7 @@ set autoindent
 set smartindent
 set relativenumber
 let mapleader=' '
-"bg transparent 
+" bg transparent 
 " hi Normal ctermfg=252 ctermbg=none
 
 "nohighlightsearch
@@ -68,6 +67,11 @@ nnoremap <leader>g, <c-w><
 nnoremap <leader>g. <c-w>>
 nnoremap <leader>ss <c-w>s
 nnoremap <leader>sv <c-w>v
+
+"==== change buffers =====
+nnoremap <leader>bn :bn<CR>
+nnoremap <leader>bp :bp<CR>
+nnoremap <leader>bq :bd<CR>
 
 "=========================
 "======= terminal ========
@@ -103,7 +107,7 @@ let g:NERDTreeDirArrowCollapsible="~"
 
 " air-line
 let g:airline_powerline_fonts = 1
-let g:airline_theme="solarized"
+let g:airline_theme="term"
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -132,11 +136,11 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+let g:airline#extensions#branch#enabled = 1
 
 set t_Co=256
 "======= Tagbar ========
-nnoremap <silent> <Leader>tb :TagbarToggle<CR>
-let g:tagbar_autofocus=1
+nnoremap <Leader>tb :TagbarToggle<CR>
 
 "====================
 "===   plugins   ====
@@ -185,6 +189,12 @@ Plug 'honza/vim-snippets'
 " gruvbox themes
 Plug 'morhetz/gruvbox'
 
+" vim-one themes
+Plug 'rakr/vim-one'
+
+" vim-atom-dark
+Plug 'gosukiwi/vim-atom-dark'
+
 " debug in vim: ./install_gadgets.py --enable-c
 " using vscode-cpptools or CodeLLDB
 Plug 'puremourning/vimspector'
@@ -197,6 +207,8 @@ Plug 'rhysd/vim-clang-format'
 
 " down nerdfonts
 Plug 'ryanoasis/vim-devicons'
+
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
