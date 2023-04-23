@@ -27,6 +27,7 @@ syntax on
 filetype indent on
 filetype plugin on
 set shortmess+=c
+set encoding=UTF-8
 set noshowmode
 set nobackup
 set noswapfile
@@ -69,9 +70,9 @@ nnoremap <leader>ss <c-w>s
 nnoremap <leader>sv <c-w>v
 
 "==== change buffers =====
-nnoremap <leader>bn :bn<CR>
-nnoremap <leader>bp :bp<CR>
-nnoremap <leader>bq :bd<CR>
+nnoremap bn :bn<CR>
+nnoremap bp :bp<CR>
+nnoremap bq :bd<CR>
 
 "=========================
 "======= terminal ========
@@ -172,8 +173,6 @@ Plug 'voldikss/vim-floaterm'
 
 " comment
 Plug 'tpope/vim-commentary'
-
-set encoding=UTF-8
 
 " airline
 Plug 'vim-airline/vim-airline'
