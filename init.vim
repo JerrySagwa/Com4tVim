@@ -70,9 +70,9 @@ nnoremap <leader>ss <c-w>s
 nnoremap <leader>sv <c-w>v
 
 "==== change buffers =====
-nnoremap bn :bn<CR>
-nnoremap bp :bp<CR>
-nnoremap bq :bd<CR>
+nnoremap ]b :bn<CR>
+nnoremap [b :bp<CR>
+nnoremap qb :bd<CR>
 
 "=========================
 "======= terminal ========
@@ -107,7 +107,7 @@ let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
 
 " air-line
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts=1
 let g:airline_theme="term"
 
 if !exists('g:airline_symbols')
@@ -233,7 +233,8 @@ let g:coc_global_extensions = [
       \ 'coc-vimlsp',
       \ 'coc-cmake',
       \ 'coc-highlight',
-      \ 'coc-pyright'
+      \ 'coc-pyright',
+	  \ 'coc-snippets'	
       \ ]
 
 set signcolumn=number
@@ -272,7 +273,7 @@ endfunction
 " highlight link CocHighlightText Visual
 " autocmd CursorHold * silent call CocActionAsync('highlight')   " TODO
 
-nmap <F2> <Plug>(coc-rename)
+nmap <leader>R <Plug>(coc-rename)
 
 " diagnostic info
 nnoremap <silent><nowait> <LEADER>d :CocList diagnostics<CR>

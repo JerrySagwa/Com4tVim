@@ -53,8 +53,8 @@ nnoremap <leader>ss <c-w>s
 nnoremap <leader>sv <c-w>v
 
 "==== change buffers =====
-nnoremap <leader>bn :bn<CR>
-nnoremap <leader>bp :bp<CR>
-nnoremap <leader>bq :bd<CR>
+nnoremap ]b :bn<CR>
+nnoremap [b :bp<CR>
+nnoremap qb :bd<CR>
 
 set signcolumn=number
