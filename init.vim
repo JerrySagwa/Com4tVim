@@ -75,6 +75,10 @@ nnoremap <leader>gh <c-w>h
 nnoremap <leader>gj <c-w>j
 nnoremap <leader>gk <c-w>k
 nnoremap <leader>gl <c-w>l
+nnoremap <leader>gL <c-w>L
+nnoremap <leader>gH <c-w>H
+nnoremap <leader>gJ <c-w>J
+nnoremap <leader>gK <c-w>K
 nnoremap <leader>gg <c-w>w
 nnoremap <leader>g= <c-w>+
 nnoremap <leader>g- <c-w>-
