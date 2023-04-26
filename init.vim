@@ -20,8 +20,22 @@
 "====================
 
 set nocompatible
-colorscheme gruvbox
-set bg=dark
+if has('termguicolors')
+  set termguicolors
+endif
+
+" For dark version.
+set background=dark
+
+" Set contrast.
+" This configuration option should be placed before `colorscheme everforest`.
+" Available values: 'hard', 'medium'(default), 'soft'
+let g:everforest_background = 'medium'
+
+" For better performance
+let g:everforest_better_performance = 1
+
+colorscheme everforest
 
 syntax on
 filetype indent on
@@ -108,7 +122,7 @@ let g:NERDTreeDirArrowCollapsible="~"
 
 " air-line
 let g:airline_powerline_fonts=1
-let g:airline_theme="term"
+let g:airline_theme="kalisi"
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -193,6 +207,9 @@ Plug 'rakr/vim-one'
 
 " vim-atom-dark
 Plug 'gosukiwi/vim-atom-dark'
+
+" forest colorscheme
+Plug 'sainnhe/vim-color-forest-night'
 
 " debug in vim: ./install_gadgets.py --enable-c
 " using vscode-cpptools or CodeLLDB
