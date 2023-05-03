@@ -44,17 +44,23 @@ nnoremap <leader>gh <c-w>h
 nnoremap <leader>gj <c-w>j
 nnoremap <leader>gk <c-w>k
 nnoremap <leader>gl <c-w>l
+nnoremap <leader>gL <c-w>L
+nnoremap <leader>gH <c-w>H
+nnoremap <leader>gJ <c-w>J
+nnoremap <leader>gK <c-w>K
 nnoremap <leader>gg <c-w>w
 nnoremap <leader>g= <c-w>+
 nnoremap <leader>g- <c-w>-
 nnoremap <leader>g, <c-w><
 nnoremap <leader>g. <c-w>>
+nnoremap <leader>gq <c-w>c
 nnoremap <leader>ss <c-w>s
 nnoremap <leader>sv <c-w>v
 
+
 "==== change buffers =====
-nnoremap ]b :bn<CR>
-nnoremap [b :bp<CR>
+nnoremap <leader>] :bn<CR>
+nnoremap <leader>[ :bp<CR>
 nnoremap qb :bd<CR>
 
 set signcolumn=number

@@ -5,7 +5,7 @@
 "====== ctags               =====
 "====== gdb||CodeLLDB       =====
 "====== fzf                 =====
-"====== nerdfonts           =====
+"====== nerdfonts(JBMonoNF) =====
 "====== powerline(airline)  =====
 "====== clang&clang-format  =====
 "================================
@@ -30,7 +30,7 @@ set background=dark
 " Set contrast.
 " This configuration option should be placed before `colorscheme everforest`.
 " Available values: 'hard', 'medium'(default), 'soft'
-let g:everforest_background = 'medium'
+let g:everforest_background = 'hard'
 
 " For better performance
 let g:everforest_better_performance = 1
@@ -84,12 +84,13 @@ nnoremap <leader>g= <c-w>+
 nnoremap <leader>g- <c-w>-
 nnoremap <leader>g, <c-w><
 nnoremap <leader>g. <c-w>>
+nnoremap <leader>gq <c-w>c
 nnoremap <leader>ss <c-w>s
 nnoremap <leader>sv <c-w>v
 
 "==== change buffers =====
-nnoremap ]b :bn<CR>
-nnoremap [b :bp<CR>
+nnoremap <leader>] :bn<CR>
+nnoremap <leader>[ :bp<CR>
 nnoremap qb :bd<CR>
 
 "=========================
@@ -126,7 +127,7 @@ let g:NERDTreeDirArrowCollapsible="~"
 
 " air-line
 let g:airline_powerline_fonts=1
-let g:airline_theme="kalisi"
+let g:airline_theme="everforest"
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -384,7 +385,7 @@ nmap <c-p> :FZF<cr>
 "======= clang-format ======
 "===========================
 let g:clang_format#style_options = {
-			\ " BasedOnStyle" : "Google",
+			\ "BasedOnStyle" : "Google",
 			\ "IndentWidth" : 4,
 			\ "AccessModifierOffset" : -4,
             \ "AllowShortIfStatementsOnASingleLine" : "true",
