@@ -89,9 +89,9 @@ nnoremap <leader>ss <c-w>s
 nnoremap <leader>sv <c-w>v
 
 "==== change buffers =====
-nnoremap b] :bn<CR>
-nnoremap b[ :bp<CR>
-nnoremap bq :bd<CR>
+nnoremap <leader>] :bn<CR>
+nnoremap <leader>[ :bp<CR>
+nnoremap <leader>bq :bd<CR>
 
 "=========================
 "======= terminal ========
